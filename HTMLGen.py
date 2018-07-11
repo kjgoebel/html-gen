@@ -460,7 +460,7 @@ class JQPAGE(PageWrapper):
             <head>
                 <title>{title}</title>
                 <link rel="stylesheet" href="{css}" />
-                <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
             </head>
             <body {kwargs}>
                 {args}
@@ -475,5 +475,32 @@ class JQPAGE(PageWrapper):
             vif(css, LINK(rel = 'stylesheet', href = css)),
             GETJQ
         )
+
+
+if __name__ == '__main__':
+    import random, string
+    
+    items = [
+        ''.join(
+            [random.choice(string.ascii_letters) for i in range(10)]
+        )
+        for j in range(10)
+    ]
+    
+    print(str(
+        JQPAGE(
+            'Links Page',
+            'random.css',
+            H3('Links to Random Stuff'),
+            (
+                A(href = '%s.html' % item)(
+                    IMG(src = '%s.jpg' % item, alt = 'a picture of %s' % item),
+                    item
+                ) + BR
+                for item in items
+            )
+        )
+    ))
+
 
 
