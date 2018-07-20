@@ -60,7 +60,7 @@ print(str(
     )
 ))
 ```
-prints `'<div class="myClass">Here is some text.</div>'`. In fact, `DIV` itself is not a function or a class, but an instance of the Tag class. Note that it's possible to write `DIV('Here is some text.', class_ = 'myClass')` if you want to. It's just less clear, in my opinion.
+prints `'<div class="myClass">Here is some text.</div>'`. In fact, `DIV` itself is not a function or a class, but an instance of the Tag class. Note that it's possible to write `DIV('Here is some text.', class_ = 'myClass')` if you want to. It's just less clear, in my opinion, and it becomes rapidly less clear as the number and complexity of objects contained in the div increase.
 
 To solve the problem of putting dynamic content inside argument lists, HTMLGen has several features.
 
